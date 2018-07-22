@@ -11,7 +11,7 @@ or `riff create ruby -a json.rb`
 As of riff 0.0.7, that generates and builds a Dockerfile and image:
 
 ```Dockerfile
-FROM yebyen/ruby-function-invoker:0.0.3-snapshot
+FROM crdant/ruby-function-invoker:0.0.2-snapshot
 ENV FUNCTION_URI /functions/json.rb
 ADD json.rb ${FUNCTION_URI}
 ```
