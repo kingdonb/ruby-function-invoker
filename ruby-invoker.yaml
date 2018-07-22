@@ -16,9 +16,9 @@ spec:
     template: |
       FROM yebyen/ruby-function-invoker:{{.InvokerVersion}}
       {{ if .FileExists "Gemfile" -}}
-      ENV FUNCTION_URI /functions/
-      COPY . ${FUNCTION_URI}
-      RUN (cd ${FUNCTION_URI} && bundle install --without development test)
+      ENV FUNCTION_URI /functions/{{.Artifact}}
+      COPY . /functions/
+      RUN (cd /functions/ && bundle install --without development test)
       {{- else -}}
       ENV FUNCTION_URI /functions/{{.Artifact}}
       ADD {{.ArtifactBase}} ${FUNCTION_URI}
