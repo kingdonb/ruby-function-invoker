@@ -1,0 +1,34 @@
+---
+apiVersion: projectriff.io/v1alpha1
+kind: Invoker
+metadata:
+  name: ruby
+spec:
+  version: 0.0.3-snapshot
+  matchers:
+  - Gemfile
+  - "*.rb"
+  functionTemplate:
+    spec:
+      protocol: http
+  files:
+  - path: Dockerfile
+    template: |
+      FROM yebyen/ruby-function-invoker:{{.InvokerVersion}}
+      {{ if .FileExists "Gemfile" -}}
+      ENV FUNCTION_URI /functions/{{.Artifact}}
+      COPY . /functions/
+      RUN (cd /functions/ && bundle install --without development test)
+      {{- else -}}
+      ENV FUNCTION_URI /functions/{{.Artifact}}
+      ADD {{.ArtifactBase}} ${FUNCTION_URI}
+      {{- end }}
+  doc: |
+    {{.Process}} the function based on the function source code specified as the filename, using the name
+    and version specified for the function image repository and tag.
+
+    For example, from a directory named 'square' containing a function 'square.rb', you can simply type :
+
+        riff {{.Command}}
+
+    to {{.Result}}.
