@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-docker build . -t crdant/binary:0.0.2-snapshot
-docker push crdant/binary:0.0.2-snapshot
+docker build . -t yebyen/binary:0.0.3-snapshot
+docker push yebyen/binary:0.0.3-snapshot
 kubectl apply -f binary.yml

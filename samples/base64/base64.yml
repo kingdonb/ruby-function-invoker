@@ -1,10 +1,10 @@
-apiVersion: projectriff.io/v1
+apiVersion: projectriff.io/v1alpha1
 kind: Topic
 metadata:
   name: text
 ---
 
-apiVersion: projectriff.io/v1
+apiVersion: projectriff.io/v1alpha1
 kind: Topic
 metadata:
   name: encoded
@@ -13,7 +13,7 @@ spec:
 
 ---
 
-apiVersion: projectriff.io/v1
+apiVersion: projectriff.io/v1alpha1
 kind: Function
 metadata:
   name: base64
@@ -22,4 +22,4 @@ spec:
   input: text
   output: encoded
   container:
-    image: crdant/base64:0.0.2-snapshot
+    image: yebyen/base64:0.0.3-snapshot

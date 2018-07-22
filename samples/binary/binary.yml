@@ -1,10 +1,10 @@
-apiVersion: projectriff.io/v1
+apiVersion: projectriff.io/v1alpha1
 kind: Topic
 metadata:
   name: decimals
 ---
 
-apiVersion: projectriff.io/v1
+apiVersion: projectriff.io/v1alpha1
 kind: Topic
 metadata:
   name: binaries
@@ -13,7 +13,7 @@ spec:
 
 ---
 
-apiVersion: projectriff.io/v1
+apiVersion: projectriff.io/v1alpha1
 kind: Function
 metadata:
   name: binary
@@ -22,4 +22,4 @@ spec:
   input: decimals
   output: binaries
   container:
-    image: crdant/binary:0.0.2-snapshot
+    image: yebyen/binary:0.0.3-snapshot
