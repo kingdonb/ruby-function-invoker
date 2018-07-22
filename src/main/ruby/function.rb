@@ -1,4 +1,5 @@
 require 'pathname'
+require 'bundler/setup'
 
 class Function
   def initialize (source)
