@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-docker build . -t crdant/base64:0.0.2-snapshot
-docker push crdant/base64:0.0.2-snapshot
+docker build . -t yebyen/base64:0.0.3-snapshot
+docker push yebyen/base64:0.0.3-snapshot
 kubectl apply -f base64.yml
