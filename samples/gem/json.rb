@@ -1,3 +1,4 @@
 require 'json'
+require 'ap'
 
-Proc.new { |a| JSON.generate([a]) }
+Proc.new { |a| ap JSON.generate([a]) }
