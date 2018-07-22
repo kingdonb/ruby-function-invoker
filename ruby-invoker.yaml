@@ -4,7 +4,7 @@ kind: Invoker
 metadata:
   name: ruby
 spec:
-  version: 0.0.2-snapshot
+  version: 0.0.4-snapshot
   matchers:
   - Gemfile
   - "*.rb"
@@ -14,13 +14,16 @@ spec:
   files:
   - path: Dockerfile
     template: |
-      FROM crdant/ruby-function-invoker:{{.InvokerVersion}}
+      FROM yebyen/ruby-function-invoker:{{.InvokerVersion}}
+      ENV FUNCTION_URI /functions/{{.Artifact}}
       {{ if .FileExists "Gemfile" -}}
-      ENV FUNCTION_URI /functions/{{.Artifact}}
-      COPY . /functions/
-      RUN (cd /functions/ && bundle install --without development test)
+      COPY Gemfile /
+      {{ if .FileExists "Gemfile.lock" -}}
+      COPY Gemfile.lock /
+      {{- end }}
+      RUN (cd / && bundle install --without development test)
+      ADD . /functions/
       {{- else -}}
-      ENV FUNCTION_URI /functions/{{.Artifact}}
       ADD {{.ArtifactBase}} ${FUNCTION_URI}
       {{- end }}
   doc: |

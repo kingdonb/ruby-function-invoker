@@ -9,4 +9,4 @@ RUN apt-get remove -y --purge build-essential
 
 EXPOSE 8080
 
-ENTRYPOINT ["/usr/bin/env", "ruby", "./server.rb", "-o", "0.0.0.0"]
+ENTRYPOINT ["/usr/bin/env", "bundle", "exec", "ruby", "./server.rb", "-o", "0.0.0.0"]
