@@ -1,0 +1,10 @@
+---
+apiVersion: projectriff.io/v1alpha1
+kind: Link
+metadata:
+  name: base64
+spec:
+  function: base64
+  input: base64
+  windowing:
+    size: 5

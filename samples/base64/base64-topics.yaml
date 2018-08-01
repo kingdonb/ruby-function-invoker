@@ -1,0 +1,7 @@
+---
+apiVersion: projectriff.io/v1alpha1
+kind: Topic
+metadata:
+  name: base64
+spec:
+  partitions: 7

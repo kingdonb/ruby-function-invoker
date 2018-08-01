@@ -1,0 +1,9 @@
+---
+apiVersion: projectriff.io/v1alpha1
+kind: Function
+metadata:
+  name: binary
+spec:
+  container:
+    image: kbarret8/binary:0.0.1
+  protocol: http

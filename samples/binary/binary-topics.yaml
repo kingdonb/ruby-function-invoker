@@ -1,0 +1,7 @@
+---
+apiVersion: projectriff.io/v1alpha1
+kind: Topic
+metadata:
+  name: binary
+spec:
+  partitions: 7

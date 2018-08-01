@@ -1,0 +1,10 @@
+---
+apiVersion: projectriff.io/v1alpha1
+kind: Link
+metadata:
+  name: binary
+spec:
+  function: binary
+  input: binary
+  windowing:
+    size: 1
